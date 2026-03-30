@@ -1,5 +1,10 @@
 # JMeter Web Insight Report
 
+![License](https://img.shields.io/badge/license-Apache%202.0-blue)
+![Java](https://img.shields.io/badge/java-11%2B-orange)
+![Release](https://img.shields.io/github/v/release/aharon890/JmeterWebInsightReport)
+![Build](https://img.shields.io/github/actions/workflow/status/aharon890/JmeterWebInsightReport/ci.yml?branch=main&label=build)
+
 A JMeter plugin that generates modern, interactive web reports from your load test results — a powerful alternative to JMeter's built-in dashboard.
 
 ## Modules
