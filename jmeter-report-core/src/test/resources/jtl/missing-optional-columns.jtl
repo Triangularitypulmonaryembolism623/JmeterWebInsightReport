@@ -1,0 +1,11 @@
+timeStamp,elapsed,label,responseCode,success
+1700000000000,100,SimpleRequest,200,true
+1700000000500,110,SimpleRequest,200,true
+1700000001000,120,SimpleRequest,200,true
+1700000001500,130,SimpleRequest,200,true
+1700000002000,140,SimpleRequest,200,true
+1700000002500,150,SimpleRequest,200,true
+1700000003000,160,SimpleRequest,200,true
+1700000003500,170,SimpleRequest,200,true
+1700000004000,180,SimpleRequest,200,true
+1700000004500,200,SimpleRequest,200,true

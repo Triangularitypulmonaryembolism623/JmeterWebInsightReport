@@ -1,0 +1,6 @@
+timeStamp,elapsed,label,responseCode,responseMessage,threadName,dataType,success,failureMessage,bytes,sentBytes,grpThreads,allThreads,URL,Latency,IdleTime,Connect
+1700000000000,150,"GET /api/search?q=hello,world",200,OK,Thread Group 1-1,text,true,,400,120,5,5,null,12,0,4
+1700000001000,200,"POST /api/data,upload",200,OK,Thread Group 1-1,text,true,,600,250,5,5,null,15,0,6
+1700000002000,300,"GET /api/search?q=hello,world",500,"Error: timeout, retry later",Thread Group 1-1,text,false,,400,120,5,5,null,12,0,4
+1700000003000,180,"GET /api/report?fields=a,b,c",200,OK,Thread Group 1-1,text,true,,350,100,5,5,null,10,0,3
+1700000004000,250,"POST /api/data,upload",503,"Service unavailable, please wait",Thread Group 1-1,text,false,,600,250,5,5,null,15,0,6

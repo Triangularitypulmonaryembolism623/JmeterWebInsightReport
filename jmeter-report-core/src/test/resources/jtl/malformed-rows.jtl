@@ -1,0 +1,10 @@
+timeStamp,elapsed,label,responseCode,responseMessage,threadName,dataType,success,failureMessage,bytes,sentBytes,grpThreads,allThreads,URL,Latency,IdleTime,Connect
+1700000000000,100,GET /api/health,200,OK,Thread Group 1-1,text,true,,500,100,5,5,null,10,0,5
+1700000000500,120,GET /api/health,200,OK,Thread Group 1-1,text,true,,500,100,5,5,null,10,0,5
+1700000001000,110,GET /api/health,200,OK,Thread Group 1-1,text,true,,500,100,5,5,null,10,0,5
+bad,data
+1700000002000,130,GET /api/health,200,OK,Thread Group 1-1,text,true,,500,100,5,5,null,10,0,5
+1700000002500,140,GET /api/health,200,OK,Thread Group 1-1,text,true,,500,100,5,5,null,10,0,5
+abc,100,GET /api/health,200,OK,Thread Group 1-1,text,true,,500,100,5,5,null,10,0,5
+1700000003500,150,GET /api/health,200,OK,Thread Group 1-1,text,true,,500,100,5,5,null,10,0,5
+1700000004000,160,GET /api/health,200,OK,Thread Group 1-1,text,true,,500,100,5,5,null,10,0,5

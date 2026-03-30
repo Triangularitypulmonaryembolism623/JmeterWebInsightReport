@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>com.jmeterwebinsightreport</groupId>
+        <artifactId>jmeter-web-insight-suite</artifactId>
+        <version>1.0.5</version>
+    </parent>
+
+    <artifactId>jmeter-report-core</artifactId>
+    <packaging>jar</packaging>
+
+    <name>JMeter Report Core</name>
+    <description>Shared models, statistics engine, SLA evaluation, and utilities for the JMeter Web Insight Suite. JMeter-agnostic.</description>
+
+    <dependencies>
+        <!-- T-Digest for percentile calculation (compile — shaded by consuming modules) -->
+        <dependency>
+            <groupId>com.tdunning</groupId>
+            <artifactId>t-digest</artifactId>
+        </dependency>
+
+        <!-- Jackson for serialization (compile scope for core dev; provided at runtime by JMeter) -->
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <scope>compile</scope>
+        </dependency>
+
+        <!-- SLF4J for logging (compile scope for core dev; provided at runtime by JMeter) -->
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <scope>compile</scope>
+        </dependency>
+
+        <!-- Commons Math for statistics (compile scope for core dev; provided at runtime by JMeter) -->
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-math3</artifactId>
+            <scope>compile</scope>
+        </dependency>
+
+        <!-- Testing -->
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter</artifactId>
+        </dependency>
+    </dependencies>
+</project>

@@ -1,0 +1,24 @@
+{
+  "version": "1.0",
+  "testNotes": "## Load Test Results\nThis test validates the checkout flow under load.",
+  "verdict": "PASS",
+  "slaThresholds": {
+    "default": { "p95": 1000, "p99": 2000, "errorRate": 5.0, "meanResponseTime": 500 },
+    "POST /api/checkout": { "p95": 2000, "errorRate": 3.0 }
+  },
+  "samplerNotes": {
+    "POST /api/checkout": "Includes 2s payment processing delay",
+    "GET /api/products": "Cached response, should be fast"
+  },
+  "timelineMarkers": [
+    { "timestamp": 1700000002000, "label": "DB Failover", "type": "warning", "description": "Primary DB switched to replica", "color": "#ff9800" },
+    { "timestamp": 1700000004000, "label": "Recovery", "type": "info", "description": "System recovered", "color": "#4caf50" }
+  ],
+  "comparisonThresholds": {
+    "p95PctChange": 15.0,
+    "errorRateChange": 3.0,
+    "meanPctChange": 20.0,
+    "p99PctChange": 25.0,
+    "throughputPctChange": 10.0
+  }
+}
