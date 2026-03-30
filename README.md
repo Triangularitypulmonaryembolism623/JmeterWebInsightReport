@@ -9,22 +9,16 @@ A JMeter plugin that generates modern, interactive web reports from your load te
 | `jmeter-report-core` | Shared models, statistics engine, SLA evaluation |
 | `jmeter-web-insight-report` | Web Insight Report generator plugin |
 
-## Building
-
-```bash
-mvn clean package
-```
-
-The deployable plugin JAR is produced at:
-```
-jmeter-web-insight-report/target/jmeter-web-insight-report-1.0.0.jar
-```
-
 ## Installation
 
-Copy the shaded JARs into your JMeter installation:
+### Option 1: Download (recommended)
+
+Download the latest JAR from the [Releases page](https://github.com/aharon890/JmeterWebInsightReport/releases) and copy it to your JMeter `lib/ext/` directory.
+
+### Option 2: Build from source
+
 ```bash
-cp jmeter-report-core/target/jmeter-report-core-1.0.0.jar $JMETER_HOME/lib/ext/
+mvn clean package -DskipTests
 cp jmeter-web-insight-report/target/jmeter-web-insight-report-1.0.0.jar $JMETER_HOME/lib/ext/
 ```
 

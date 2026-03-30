@@ -28,20 +28,18 @@ The report is a **single self-contained HTML file** — no server, no CDN, no in
 
 ## Installation
 
-### 1. Build
+### Option 1: Download (recommended)
+
+Download the latest JAR from the [Releases page](https://github.com/aharon890/JmeterWebInsightReport/releases) and copy it to `$JMETER_HOME/lib/ext/`.
+
+### Option 2: Build from source
 
 ```bash
 mvn clean package -DskipTests
+cp jmeter-web-insight-report/target/jmeter-web-insight-report-1.0.0.jar $JMETER_HOME/lib/ext/
 ```
 
-### 2. Copy JARs to JMeter
-
-```bash
-cp jmeter-report-core/target/jmeter-report-core-1.0.5.jar $JMETER_HOME/lib/ext/
-cp jmeter-web-insight-report/target/jmeter-web-insight-report-1.0.5.jar $JMETER_HOME/lib/ext/
-```
-
-### 3. Use in JMeter
+### Use in JMeter
 
 **GUI mode:** Add the **Web Insight Report** listener to your test plan (Add → Listener → Web Insight Report).
 

@@ -43,3 +43,7 @@ hs_err_pid*
 # Test artifacts
 *.jtl
 !jmeter-report-core/src/test/resources/jtl/*.jtl
+
+# Screenshots / temp files
+*.png
+!docs/**/*.png
