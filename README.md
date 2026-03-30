@@ -17,15 +17,15 @@ mvn clean package
 
 The deployable plugin JAR is produced at:
 ```
-jmeter-web-insight-report/target/jmeter-web-insight-report-1.0.5.jar
+jmeter-web-insight-report/target/jmeter-web-insight-report-1.0.0.jar
 ```
 
 ## Installation
 
 Copy the shaded JARs into your JMeter installation:
 ```bash
-cp jmeter-report-core/target/jmeter-report-core-1.0.5.jar $JMETER_HOME/lib/ext/
-cp jmeter-web-insight-report/target/jmeter-web-insight-report-1.0.5.jar $JMETER_HOME/lib/ext/
+cp jmeter-report-core/target/jmeter-report-core-1.0.0.jar $JMETER_HOME/lib/ext/
+cp jmeter-web-insight-report/target/jmeter-web-insight-report-1.0.0.jar $JMETER_HOME/lib/ext/
 ```
 
 ## Report Output Configuration

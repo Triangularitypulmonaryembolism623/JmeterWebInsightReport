@@ -7,7 +7,7 @@
     <parent>
         <groupId>com.jmeterwebinsightreport</groupId>
         <artifactId>jmeter-web-insight-suite</artifactId>
-        <version>1.0.5</version>
+        <version>1.0.0</version>
     </parent>
 
     <artifactId>jmeter-web-insight-report</artifactId>
